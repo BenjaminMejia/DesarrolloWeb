@@ -1,0 +1,137 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aquamarine;
+}
+.reloj{
+    width: 500px;
+    height: 500px;
+    border: 20px solid gray;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+}
+.punto{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 240px;
+    left: 240px;
+}
+.hora{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    position: absolute;
+}
+.hora-1{
+    top: 40px;
+    right: 130px;
+}
+.hora-2{
+    top: 125px;
+    right: 45px;
+}
+.hora-3{
+    top: 235px;
+    right: 10px;
+}
+.hora-4{
+    top: 345px;
+    right: 45px;
+}
+.hora-5{
+    top: 430px;
+    right: 130px;
+}
+.hora-6{
+    bottom: 10px;
+    left: 240px;
+}
+.hora-7{
+    top: 430px;
+    left: 130px;
+}
+.hora-8{
+    top: 345px;
+    left: 45px;
+}
+.hora-9{
+    top: 235px;
+    left: 10px;
+}
+.hora-10{
+    top: 125px;
+    left: 45px;
+}
+.hora-11{
+    top: 43px;
+    left: 130px;
+}
+.hora-12{
+    top: 10px;
+    left: 235px;
+}
+.brand{
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+    position: absolute;
+    top: 90px;
+    left: 42.5%;
+}
+.BrazoMinuto-wrapper{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    border-radius: 50%;
+}
+.BrazoMinuto{
+    position: relative;
+}
+.BrazoMinuto .brazo{
+    width: 4px;
+    height: 200px;
+    background-color: red;
+    position: absolute;
+    left: 198px;
+}
+.BrazoHora-wrapper{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border-radius: 50%;
+}   
+.BrazoHora{
+    position: relative;
+}
+.BrazoHora .brazo{
+    width: 4px;
+    height: 150px;
+    background-color: blue;
+    position: absolute;
+    left: 148px;
+}
+.BrazoSegundo-wrapper{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    border-radius: 50%;
+}   
+.BrazoSegundo{
+    position: relative;
+}
+.BrazoSegundo .brazo{
+    width: 2px;
+    height: 175px;
+    background-color: black;
+    position: absolute;
+    left: 174px;
+}
