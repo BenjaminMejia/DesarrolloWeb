@@ -1,0 +1,130 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/CdComic.jpeg');
+  background-size: cover;
+}
+  
+header {
+  background-color: #3e96e7;
+  opacity: 0.9;
+  padding: 3px 0;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(133, 8, 216)
+}
+
+.Contenido {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Div verticales*/
+.formulario,
+.detalles-evento,
+.Detalles-compra {
+  margin: 10px; /* Separacion entre div */
+}
+  
+/* Formulario */
+.formulario {
+  background-color: rgb(46, 219, 12);
+  opacity: 80%;
+  order: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+  
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+  
+.formulario label {
+  margin-bottom: 5px;
+}
+  
+.formulario input,
+.formulario select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+  
+.formulario button {
+  background-color: #c51089;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+  
+/* Sección de detalles del evento */
+.detalles-evento {
+  background-color: white;
+  opacity: 80%;
+  order: 0;
+  margin: 0 auto;
+  text-align: center;
+  flex: 1;
+  padding: 15px;
+}
+  
+.detalles-evento h2 {
+  margin-bottom: 10px;
+}
+  
+.detalles-evento ul {
+  list-style: none;
+  padding: 0;
+}
+  
+.detalles-evento li {
+  margin-bottom: 5px;
+}
+.detalles-evento img{
+  width: 50%;
+}
+
+    /* Sección de detalles del evento */
+.Detalles-compra{
+  background-color: white;
+  opacity: 80%;
+  order: 2;
+  margin: 0 auto;
+  flex: 1;
+  padding: 15px;
+}
+
+.detalle{
+  font-weight: bold;
+}
+      
+  
+/* Media queries */
+@media (max-width: 768px) {
+  .formulario,
+  .detalles-evento {
+    width: 100%;
+  }
+  
+  .formulario {
+    flex-direction: column;
+  }
+  
+  .detalles-evento {
+    grid-template-columns: none;
+  }
+}

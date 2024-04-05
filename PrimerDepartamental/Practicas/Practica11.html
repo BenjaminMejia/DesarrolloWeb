@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <title>Anime-Con</title>
+    <script type="text/javascript" src="./js/java11.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/estilo11.css">
+</head>
+<body>
+    <header>
+        <h1>Registro de Anime-Con</h1>
+    </header>
+    <br>
+    <div class="Contenido">
+        <div class="formulario">
+            <h2>Registro</h2>
+            <form onsubmit="return validarFormulario()">
+                <label>Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" oninput="actualizarEtiqueta()" required>
+                <br><br>
+                <label>Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" oninput="actualizarEtiqueta()" required>
+                <br><br>
+                <label>Número de Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" oninput="actualizarEtiqueta()" required>
+                <br><br>
+                <label>Tipo de Entrada:</label>
+                <select id="tipo-entrada" name="tipo-entrada" oninput="actualizarEtiqueta()" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="general">General</option>
+                    <option value="vip">VIP</option>
+                    <option value="platinum">Platinum</option>
+                </select>
+                <br><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div class="detalles-evento">
+            <h2>Detalles del Evento</h2>
+            <ul>
+                <li><strong>Fecha:</strong> 7 de Julio de 2024</li>
+                <br><br>
+                <li><strong>Lugar:</strong> Centro de Convenciones, Ciudad de México</li>
+                <br><br>
+                <li><strong>Descripción:</strong> La Convención de Anime es un evento anual que reúne a los fanáticos
+                    del anime, manga, cosplay y cultura japonesa. Disfruta de invitados especiales, stands de venta,
+                    talleres, concursos y mucho más.</li>
+                    <br>
+                    <img src="./images/logo.jpg">
+            </ul>
+        </div>
+        <div class="Detalles-compra">
+            <h2>Detalles del Evento</h2>
+            <br>
+            <p class="detalle">Nombre: </p><span id="nombre-compra"></span>
+            <br><br>
+            <p class="detalle">Correo electrónico: </p><span id="correo-compra"></span>
+            <br><br>
+            <p class="detalle">Telefono: </p><span id="telefonoo-compra"></span>
+            <br><br>
+            <p class="detalle">Tipo de entrada: </p><span id="entrada-compra"></span>
+        </div>
+    </div>
+</body>
+</html>
