@@ -25,8 +25,13 @@ function agregarTarea(tarea) {
   });
 
   // Texto de la tarea
-  const textoTarea = document.createElement('span');
-  textoTarea.textContent = tarea;
+const textoTarea = document.createElement('span');
+textoTarea.textContent = tarea;
+textoTarea.setAttribute('contenteditable', true); // Hacer el texto editable
+textoTarea.addEventListener('blur', function() {
+  guardarTareas();
+}); // Guardar tarea al perder el foco
+
 
   // Botón para eliminar tarea
   const btnEliminar = document.createElement('button');
@@ -50,7 +55,7 @@ function agregarTarea(tarea) {
 function marcarTareaCompletada(checkbox) {
   const tarea = checkbox.parentNode;
   tarea.classList.toggle('completada');
-
+  
   // Guardar las tareas en el almacenamiento local
   guardarTareas();
 }
@@ -72,28 +77,25 @@ function eliminarTarea(boton) {
   }
 }
 
-
-
-
 // Función para guardar las tareas en el almacenamiento local
 function guardarTareas() {
   const tareas = obtenerTareas();
-  const tareaTexto = nuevaTarea.value;
-  if (tareaTexto) {
-    tareas.push({
-      texto: tareaTexto,
-      completada: false,
-    });
-    nuevaTarea.value = '';
-  }
-  localStorage.setItem('tareas', JSON.stringify(tareas));
+  const tareasActualizadas = Array.from(listaTareas.querySelectorAll('.tarea')).map(tareaElemento => {
+    return {
+      texto: tareaElemento.querySelector('span').textContent,
+      completada: tareaElemento.classList.contains('completada')
+    };
+  });
+  localStorage.setItem('tareas', JSON.stringify(tareasActualizadas));
 }
+
 
 // Mostrar las tareas al cargar la página
 function mostrarTareas() {
   const tareas = obtenerTareas();
+  console.log(tareas);
   tareas.forEach(tarea => {
-    agregarTarea(tarea.texto, tarea.completada);
+    agregarTareaI(tarea.texto, tarea.completada);
   });
 
   // Agregar una nueva tarea
@@ -102,6 +104,51 @@ function mostrarTareas() {
     agregarTarea(tareaTexto);
   }
 }
+
+// Función para agregar una nueva tarea
+function agregarTareaI(tarea, agregarTareaI = false) {
+  const elementoTarea = document.createElement('li');
+  elementoTarea.classList.add('tarea');
+
+  // Checkbox para marcar tarea como completada
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.classList.add('check');
+  checkbox.addEventListener('change', function() {
+    marcarTareaCompletada(this);
+  });
+
+  // Texto de la tarea
+  const textoTarea = document.createElement('span');
+  textoTarea.textContent = tarea;
+  textoTarea.setAttribute('contenteditable', true); // Hacer el texto editable
+  textoTarea.addEventListener('blur', function() {
+    guardarTareas();
+  }); // Guardar tarea al perder el foco
+
+  // Botón para eliminar tarea
+  const btnEliminar = document.createElement('button');
+  btnEliminar.classList.add('eliminar');
+  btnEliminar.textContent = 'X';
+  btnEliminar.addEventListener('click', function() {
+    eliminarTarea(this);
+  });
+
+  // Agregar elementos a la lista
+  elementoTarea.appendChild(checkbox);
+  elementoTarea.appendChild(textoTarea);
+  elementoTarea.appendChild(btnEliminar);
+  listaTareas.appendChild(elementoTarea);
+
+  // Si agregarTareaI es verdadero, marca la tarea como completada
+  if (agregarTareaI) {
+    elementoTarea.classList.add('completada');
+  }
+
+  // Guardar las tareas en el almacenamiento local
+  guardarTareas();
+}
+
 
 // Agregar eventos a los botones
 btnAgregar.addEventListener('click', function() {
